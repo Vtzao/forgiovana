@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitor ❤️ Giovana</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+</head>
+<body>
+    <div class="container">
+        <!-- Carousel de Imagens -->
+        <div class="carousel">
+            <div><img src="/img/IMG_0084.jpg" alt="Imagem 1" class="carousel-image"></div>
+            <div><img src="/img/IMG_7287.jpg" alt="Imagem 2" class="carousel-image"></div>
+            <div><img src="/img/IMG_9006.jpg" alt="Imagem 3" class="carousel-image"></div>
+            <div><img src="/img/IMG_9629.jpg" alt="Imagem 4" class="carousel-image"></div>
+            <div><img src="/img/IMG_2507.jpg" alt="Imagem 5" class="carousel-image"></div>
+        </div>
+
+        <h1>Vitor ❤️ Giovana</h1>
+        <div class="timer">
+            <p><span id="years">1</span> anos, <span id="months">6</span> meses, <span id="days">7</span> dias</p>
+            <p><span id="hours">15</span> horas, <span id="minutes">31</span> minutos e <span id="seconds">17</span> segundos</p>
+        </div>
+
+        <!-- Linha divisória -->
+        <div class="divider"></div>
+
+        <!-- Texto abaixo da linha -->
+        <p class="footer-text">
+            Para lembrar quantos dias se passaram da melhor benção que apareceu na minha vida, você! Cada momento ao seu lado é especial. Eu te amo e a maior prova de amor que posso lhe demonstrar é te conquistar incansávelmente. ❤️
+        </p>
+
+        <!-- Vídeo do YouTube -->
+        <div class="video-container">
+            <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/embed/Me5ZBOFT72w?si=6oyK_qow-TXyUsk8"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <!-- jQuery (necessário para o Slick Carousel) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Slick Carousel JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <!-- Script do Temporizador -->
+    <script>
+        // Data de início (26 de agosto de 2023)
+        const startDate = new Date('2023-08-26T00:00:00');
+
+        // Função para calcular a diferença de tempo
+        function updateTimer() {
+            const now = new Date(); // Data atual
+            const diff = now - startDate; // Diferença em milissegundos
+
+            // Calculando anos, meses, dias, horas, minutos e segundos
+            const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+            const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+            const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            // Atualizando os valores no HTML
+            document.getElementById('years').textContent = years;
+            document.getElementById('months').textContent = months;
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+
+        // Atualizar o temporizador a cada segundo
+        setInterval(updateTimer, 1000);
+
+        // Inicializar o temporizador imediatamente
+        updateTimer();
+
+        // Inicialização do Carousel
+        $(document).ready(function(){
+            $('.carousel').slick({
+                dots: true,          // Mostra os pontos de navegação
+                arrows: true,        // Mostra setas de navegação
+                infinite: true,      // Loop infinito
+                speed: 500,          // Velocidade da transição
+                slidesToShow: 1,     // Quantidade de slides visíveis
+                slidesToScroll: 1,   // Quantidade de slides a rolar
+                autoplay: true,      // Autoplay
+                autoplaySpeed: 3000 // Intervalo do autoplay
+            });
+        });
+    </script>
+</body>
+</html>
